@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace tabuleiro
+﻿namespace tabuleiro
 {
     abstract class Peca
     {
@@ -36,7 +30,7 @@ namespace tabuleiro
             bool[,] mat = movimentosPossiveis();
             for (int i = 0; i < tab.linhas; i++)
             {
-                for(int j = 0; j < tab.colunas; j++)
+                for (int j = 0; j < tab.colunas; j++)
                 {
                     if (mat[i, j])
                         return true;

@@ -25,48 +25,40 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //esquerda
+            //ESQUERDA
             pos.definirValores(posicao.linha, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha, pos.coluna - 1);
             }
-            //direita
+            //DIREITA
             pos.definirValores(posicao.linha, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha, pos.coluna + 1);
             }
-            //acima
+            //ACIMA
             pos.definirValores(posicao.linha - 1, posicao.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha - 1, pos.coluna);
             }
-            //abaixo
+            //ABAIXO
             pos.definirValores(posicao.linha + 1, posicao.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha + 1, pos.coluna);
             }
             //NO
@@ -75,9 +67,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
             //NE
@@ -86,9 +76,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
             //SE
@@ -97,9 +85,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
             //SO
@@ -108,9 +94,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
             return mat;

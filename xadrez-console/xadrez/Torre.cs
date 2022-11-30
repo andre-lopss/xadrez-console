@@ -25,50 +25,41 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //acima
+            //ACIMA
             pos.definirValores(posicao.linha - 1, posicao.coluna);
             while(tab.posicaoValida(pos) && podeMover(pos)){
                 mat[pos.linha, pos.coluna] = true;
                 if(tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.linha -= 1;
             }
-            //abaixo
+            //ABAIXO
             pos.definirValores(posicao.linha + 1, posicao.coluna);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.linha += 1;
             }
-            //direita
+            //DIREITA
             pos.definirValores(posicao.linha, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.coluna += 1;
             }
-            //acima
+            //ACIMA
             pos.definirValores(posicao.linha, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos))
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.coluna -= 1;
             }
-
             return mat;
         }
     }

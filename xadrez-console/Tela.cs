@@ -68,20 +68,15 @@ namespace xadrez_console
         {
             ConsoleColor fundoOriginal = Console.BackgroundColor;
             ConsoleColor fundoAlterado = ConsoleColor.DarkGray;
-
             for (int i = 0; i < tab.linhas; i++)
             {
                 Console.Write(8 - i + " ");
                 for (int j = 0; j < tab.colunas; j++)
                 {
                     if (posicoesPossiveis[i, j] == true)
-                    {
                         Console.BackgroundColor = fundoAlterado;
-                    }
                     else
-                    {
                         Console.BackgroundColor = fundoOriginal;
-                    }
                     imprimirPeca(tab.peca(i, j));
                 }
                 Console.WriteLine();
@@ -101,15 +96,11 @@ namespace xadrez_console
         public static void imprimirPeca(Peca peca)
         {
             if (peca == null)
-            {
                 Console.Write("- ");
-            }
             else
             {
                 if (peca.cor == Cor.Branca)
-                {
                     Console.Write(peca);
-                }
                 else
                 {
                     ConsoleColor aux = Console.ForegroundColor;
@@ -120,7 +111,5 @@ namespace xadrez_console
                 Console.Write(" ");
             }
         }
-
-
     }
 }

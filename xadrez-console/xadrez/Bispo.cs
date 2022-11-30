@@ -4,7 +4,7 @@ namespace xadrez
 {
     class Bispo : Peca
     {
-        public Bispo(Tabuleiro tab, Cor cor) : base (tab, cor)
+        public Bispo(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
 
@@ -31,9 +31,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
             //NE
@@ -42,9 +40,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
             //SE
@@ -53,9 +49,7 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
             //SO
@@ -64,11 +58,9 @@ namespace xadrez
             {
                 mat[pos.linha, pos.coluna] = true;
                 if (tab.peca(pos) != null && tab.peca(pos).cor != cor)
-                {
                     break;
-                }
                 pos.definirValores(pos.linha + 1, pos.coluna - 1);
-            }      
+            }
             return mat;
         }
     }
