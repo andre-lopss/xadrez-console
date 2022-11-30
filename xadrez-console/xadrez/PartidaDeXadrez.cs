@@ -8,7 +8,7 @@ namespace xadrez
         public Tabuleiro tab { get; private set; }
         public int turno { get; private set; }
         public Cor jogadorAtual { get; private set; }
-        public bool terminada { get; private set; }
+        public bool terminada { get; set; }
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas;
         public bool xeque { get; private set; }
@@ -229,12 +229,16 @@ namespace xadrez
         {
             Peca R = rei(cor);
             if (R == null)
-                throw new TabuleiroException("Não tem rei da cor " + cor + "no tabuleiro!");
+            {
+                throw new TabuleiroException("Não tem rei da cor " + cor + " no tabuleiro!");
+            }
             foreach (Peca x in pecasEmJogo(adversaria(cor)))
             {
                 bool[,] mat = x.movimentosPossiveis();
                 if (mat[R.posicao.linha, R.posicao.coluna])
+                {
                     return true;
+                }
             }
             return false;
         }
@@ -242,7 +246,9 @@ namespace xadrez
         public bool testeXequemate(Cor cor)
         {
             if (!estaEmXeque(cor))
+            {
                 return false;
+            }
             foreach (Peca x in pecasEmJogo(cor))
             {
                 bool[,] mat = x.movimentosPossiveis();
@@ -258,7 +264,9 @@ namespace xadrez
                             bool testeXeque = estaEmXeque(cor);
                             desfazMovimento(origem, destino, pecaCapturada);
                             if (!testeXeque)
+                            {
                                 return false;
+                            }
                         }
                     }
                 }
